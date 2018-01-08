@@ -175,7 +175,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#question"><span class="post-toc-number">1.</span> <span class="post-toc-text">question</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#optimize-markdown-documents-with-sed"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">optimize markdown documents with sed</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#introduce"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">introduce</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#target"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">target</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hint"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Hint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Knowledge-point"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Knowledge point</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#keypoint"><span class="post-toc-number">2.</span> <span class="post-toc-text">keypoint</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#references"><span class="post-toc-number">3.</span> <span class="post-toc-text">references</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">question</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">optimize markdown documents with sed</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">introduce</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">target</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Hint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Knowledge point</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">keypoint</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.</span> <span class="post-toc-text">references</span></a></li></ol>
         </nav>
     </aside>
     
@@ -198,18 +198,18 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="question"><a href="#question" class="headerlink" title="question"></a>question</h1><h2 id="optimize-markdown-documents-with-sed"><a href="#optimize-markdown-documents-with-sed" class="headerlink" title="optimize markdown documents with sed"></a>optimize markdown documents with sed</h2><h3 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h3><p>You are the document inspector of the shiyanlou, need to check document format every day, a document found in different marks appear blank between too much (provisions require only a blank document appeared in 2, 3 cases), and all the image formats are written into the link, need you use this document to quickly repair Sed.</p>
+            <h1><span id="question">question</span></h1><h2><span id="optimize-markdown-documents-with-sed">optimize markdown documents with sed</span></h2><h3><span id="introduce">introduce</span></h3><p>You are the document inspector of the shiyanlou, need to check document format every day, a document found in different marks appear blank between too much (provisions require only a blank document appeared in 2, 3 cases), and all the image formats are written into the link, need you use this document to quickly repair Sed.</p>
 <p>For example, a document does not regulate instances and link errors:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">## title one</span><br><span class="line"></span><br><span class="line">## Title Two</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Title Three</span><br><span class="line"></span><br><span class="line">[picture-1] (https://www.shiyanlou.com/test.png)</span><br></pre></td></tr></table></figure></p>
 <p>Title Two and Title Three require only one empty line directly.</p>
 <p>you should execute the Sed script in this way:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sed -f /home/shiyanlou/fix-format.sed document</span><br></pre></td></tr></table></figure></p>
 <p>After execution, the document is turned into:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## title one</span><br><span class="line"></span><br><span class="line">## Title Two</span><br><span class="line"></span><br><span class="line">## Title Three</span><br><span class="line"></span><br><span class="line">[picture-1] (https://www.shiyanlou.com/test.png)</span><br></pre></td></tr></table></figure></p>
-<h3 id="target"><a href="#target" class="headerlink" title="target"></a>target</h3><ol>
+<h3><span id="target">target</span></h3><ol>
 <li>The script path must be placed in the <code>/home/shiyanlou/fix-format.sed</code></li>
 <li>The way to call is: <code>sed -f /home/shiyanlou/fix-format.sed</code> document</li>
 <li>Delete extra repeat blank lines in a document</li>
 <li>revising the format of the picture link</li>
 </ol>
-<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><ol>
+<h3><span id="hint">Hint</span></h3><ol>
 <li><p>sed matching empty lines</p>
 </li>
 <li><p>the hints of the picture link are all in [picture-xxx] format, and the suffix of the address is.Png or.Jpg</p>
@@ -217,11 +217,11 @@
 <li><p>test document download link: <a href="http://labfile.oss.aliyuncs.com/courses/980/test-document.md" target="_blank" rel="noopener">http://labfile.oss.aliyuncs.com/courses/980/test-document.md</a></p>
 </li>
 </ol>
-<h3 id="Knowledge-point"><a href="#Knowledge-point" class="headerlink" title="Knowledge point"></a>Knowledge point</h3><ul>
+<h3><span id="knowledge-point">Knowledge point</span></h3><ul>
 <li>regular expression</li>
 <li>Sed</li>
 </ul>
-<h1 id="keypoint"><a href="#keypoint" class="headerlink" title="keypoint"></a>keypoint</h1><ul>
+<h1><span id="keypoint">keypoint</span></h1><ul>
 <li><p><strong>delete rows retain only one line</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^$/&#123;</span><br><span class="line">  N</span><br><span class="line">  /^\n$/D</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -230,7 +230,7 @@
 </li>
 </ul>
 <p><em>Note that the escape character</em></p>
-<h1 id="references"><a href="#references" class="headerlink" title="references"></a>references</h1><ul>
+<h1><span id="references">references</span></h1><ul>
 <li><a href="https://github.com/kinglion580/syl_linux/blob/master/knowlege/sed.md" target="_blank" rel="noopener">my-knowledge-sed</a></li>
 </ul>
 

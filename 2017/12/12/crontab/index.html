@@ -33,7 +33,7 @@
 <meta property="og:site_name" content="KingLion">
 <meta property="og:description" content="questionPeriodically pack a backup logintroduceYou are the server administrator of the experiment building, and you need to back up the log files in the /var/log directory every day. After the backup">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T18:18:49.613Z">
+<meta property="og:updated_time" content="2018-01-08T18:45:52.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="crontab">
 <meta name="twitter:description" content="questionPeriodically pack a backup logintroduceYou are the server administrator of the experiment building, and you need to back up the log files in the /var/log directory every day. After the backup">
@@ -176,9 +176,9 @@
 <div class="container body-wrap">
     <article class="page-article fade" itemprop="blogPage">
         <div class="post-content page-content" id="page-content" itemprop="pageContent">
-            <h2 id="question"><a href="#question" class="headerlink" title="question"></a>question</h2><h2 id="Periodically-pack-a-backup-log"><a href="#Periodically-pack-a-backup-log" class="headerlink" title="Periodically pack a backup log"></a>Periodically pack a backup log</h2><h3 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h3><p>You are the server administrator of the experiment building, and you need to back up the log files in the <code>/var/log</code> directory every day. After the backup is packed and compressed for a long time, the file name is stored in the format of the <code>year-month-day.Tar.gz</code>. For example, the file backed up in November 1, 2017 is 2017-11-01.tar.gz, and the files after the backup are stored in the <code>/home/shiyanlou/backup</code> directory.</p>
+            <h2><span id="question">question</span></h2><h2><span id="periodically-pack-a-backup-log">Periodically pack a backup log</span></h2><h3><span id="introduce">introduce</span></h3><p>You are the server administrator of the experiment building, and you need to back up the log files in the <code>/var/log</code> directory every day. After the backup is packed and compressed for a long time, the file name is stored in the format of the <code>year-month-day.Tar.gz</code>. For example, the file backed up in November 1, 2017 is 2017-11-01.tar.gz, and the files after the backup are stored in the <code>/home/shiyanlou/backup</code> directory.</p>
 <p>Note that you need to use the method of incremental backup of the tar command to make a backup.</p>
-<h3 id="target"><a href="#target" class="headerlink" title="target"></a>target</h3><ol>
+<h3><span id="target">target</span></h3><ol>
 <li>Add planning tasks for shiyanlou users</li>
 </ol>
 <ol>
@@ -188,11 +188,11 @@
 <li>Backup file naming format is <code>year-month-day.Tar.gz</code></li>
 </ol>
 <ol>
-<li>Write to crontab with a command, do not write the script<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3></li>
+<li>Write to crontab with a command, do not write the script<h3><span id="hint">Hint</span></h3></li>
 </ol>
 <p>Crontab sets a tar command for an incremental backup of the specified time.</p>
-<h3 id="Knowledge-point"><a href="#Knowledge-point" class="headerlink" title="Knowledge point"></a>Knowledge point</h3><p>Date formatted output string<br>Crontab set planning tasks<br>Tar command incremental backup mode</p>
-<h2 id="keypoint"><a href="#keypoint" class="headerlink" title="keypoint"></a>keypoint</h2><blockquote>
+<h3><span id="knowledge-point">Knowledge point</span></h3><p>Date formatted output string<br>Crontab set planning tasks<br>Tar command incremental backup mode</p>
+<h2><span id="keypoint">keypoint</span></h2><blockquote>
 <p>0 3 <em> </em> * tar -cvf /home/shiyanlou/backup/$(date +\%Y-\%m-\%d).tar.gz -g /var/log</p>
 <ul>
 <li><code>tar.gz</code></li>
@@ -201,15 +201,15 @@
 </ul>
 </blockquote>
 <ul>
-<li><h2 id="how-to-start-cron"><a href="#how-to-start-cron" class="headerlink" title="how to start cron"></a>how to start cron</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service rsyslog start</span><br><span class="line">sudo cron -f &amp;</span><br></pre></td></tr></table></figure>
+<li><h2><span id="how-to-start-cron">how to start cron</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service rsyslog start</span><br><span class="line">sudo cron -f &amp;</span><br></pre></td></tr></table></figure>
 </li>
-<li><h2 id="check-whether-cron-is-started"><a href="#check-whether-cron-is-started" class="headerlink" title="check whether cron is started"></a>check whether cron is started</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep cron</span><br><span class="line">or</span><br><span class="line">pgrep cron</span><br></pre></td></tr></table></figure>
+<li><h2><span id="check-whether-cron-is-started">check whether cron is started</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep cron</span><br><span class="line">or</span><br><span class="line">pgrep cron</span><br></pre></td></tr></table></figure>
 </li>
-<li><h2 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+<li><h2><span id="edit">edit</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
 </li>
-<li><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+<li><h2><span id="list">list</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
 </li>
-<li><h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+<li><h2><span id="remove">remove</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
