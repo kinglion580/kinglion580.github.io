@@ -18,21 +18,25 @@
     
     
     
-    <title>tags | KingLion</title>
+    <title>crontab | KingLion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://kinglion580.github.io/tags/index.html">
+    <meta name="keywords" content="linux,cron">
+    <meta name="description" content="questionPeriodically pack a backup logintroduceYou are the server administrator of the experiment building, and you need to back up the log files in the /var/log directory every day. After the backup">
+<meta name="keywords" content="linux,cron">
+<meta property="og:type" content="article">
+<meta property="og:title" content="crontab">
+<meta property="og:url" content="http://kinglion580.github.io/2017/12/12/crontab/index.html">
 <meta property="og:site_name" content="KingLion">
+<meta property="og:description" content="questionPeriodically pack a backup logintroduceYou are the server administrator of the experiment building, and you need to back up the log files in the /var/log directory every day. After the backup">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T16:32:36.334Z">
+<meta property="og:updated_time" content="2018-01-08T18:18:49.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="crontab">
+<meta name="twitter:description" content="questionPeriodically pack a backup logintroduceYou are the server administrator of the experiment building, and you need to back up the log files in the /var/log directory every day. After the backup">
     
         <link rel="alternate" type="application/atom+xml" title="KingLion" href="/atom.xml">
     
@@ -81,7 +85,7 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
@@ -127,7 +131,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">tags</div>
+        <div class="flex-col header-title ellipsis">crontab</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -149,8 +153,16 @@
 <header class="content-header page-header">
 
     <div class="container fade-scale">
-        <h1 class="title">tags</h1>
+        <h1 class="title">crontab</h1>
         <h5 class="subtitle">
+            
+                <time datetime="2017-12-11T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-12-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/challenge/">challenge</a></li></ul></li></ul>
+
             
         </h5>
     </div>
@@ -164,7 +176,43 @@
 <div class="container body-wrap">
     <article class="page-article fade" itemprop="blogPage">
         <div class="post-content page-content" id="page-content" itemprop="pageContent">
-            
+            <h2 id="question"><a href="#question" class="headerlink" title="question"></a>question</h2><h2 id="Periodically-pack-a-backup-log"><a href="#Periodically-pack-a-backup-log" class="headerlink" title="Periodically pack a backup log"></a>Periodically pack a backup log</h2><h3 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h3><p>You are the server administrator of the experiment building, and you need to back up the log files in the <code>/var/log</code> directory every day. After the backup is packed and compressed for a long time, the file name is stored in the format of the <code>year-month-day.Tar.gz</code>. For example, the file backed up in November 1, 2017 is 2017-11-01.tar.gz, and the files after the backup are stored in the <code>/home/shiyanlou/backup</code> directory.</p>
+<p>Note that you need to use the method of incremental backup of the tar command to make a backup.</p>
+<h3 id="target"><a href="#target" class="headerlink" title="target"></a>target</h3><ol>
+<li>Add planning tasks for shiyanlou users</li>
+</ol>
+<ol>
+<li><code>Every day at 3 a.m</code>., back up the <code>/var/log</code> directory to the <code>/home/shiyanlou/backup/year-month-day.Tar.gz</code> file, and note that it is an incremental backup.</li>
+</ol>
+<ol>
+<li>Backup file naming format is <code>year-month-day.Tar.gz</code></li>
+</ol>
+<ol>
+<li>Write to crontab with a command, do not write the script<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3></li>
+</ol>
+<p>Crontab sets a tar command for an incremental backup of the specified time.</p>
+<h3 id="Knowledge-point"><a href="#Knowledge-point" class="headerlink" title="Knowledge point"></a>Knowledge point</h3><p>Date formatted output string<br>Crontab set planning tasks<br>Tar command incremental backup mode</p>
+<h2 id="keypoint"><a href="#keypoint" class="headerlink" title="keypoint"></a>keypoint</h2><blockquote>
+<p>0 3 <em> </em> * tar -cvf /home/shiyanlou/backup/$(date +\%Y-\%m-\%d).tar.gz -g /var/log</p>
+<ul>
+<li><code>tar.gz</code></li>
+<li><code>0 3</code></li>
+<li><code>\%Y\%m\%d\%H\%M\%S</code></li>
+</ul>
+</blockquote>
+<ul>
+<li><h2 id="how-to-start-cron"><a href="#how-to-start-cron" class="headerlink" title="how to start cron"></a>how to start cron</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service rsyslog start</span><br><span class="line">sudo cron -f &amp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="check-whether-cron-is-started"><a href="#check-whether-cron-is-started" class="headerlink" title="check whether cron is started"></a>check whether cron is started</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep cron</span><br><span class="line">or</span><br><span class="line">pgrep cron</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
         </div>
 
         
@@ -183,7 +231,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kinglion580.github.io/tags/&title=《tags》 — KingLion&pic=http://kinglion580.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kinglion580.github.io/2017/12/12/crontab/&title=《crontab》 — KingLion&pic=http://kinglion580.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -193,22 +241,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kinglion580.github.io/tags/&title=《tags》 — KingLion&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kinglion580.github.io/2017/12/12/crontab/&title=《crontab》 — KingLion&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://kinglion580.github.io/tags/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://kinglion580.github.io/2017/12/12/crontab/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《tags》 — KingLion&url=http://kinglion580.github.io/tags/&via=http://kinglion580.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《crontab》 — KingLion&url=http://kinglion580.github.io/2017/12/12/crontab/&via=http://kinglion580.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://kinglion580.github.io/tags/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://kinglion580.github.io/2017/12/12/crontab/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -319,7 +367,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kinglion580.github.io/tags/&title=《tags》 — KingLion&pic=http://kinglion580.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kinglion580.github.io/2017/12/12/crontab/&title=《crontab》 — KingLion&pic=http://kinglion580.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -329,22 +377,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kinglion580.github.io/tags/&title=《tags》 — KingLion&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kinglion580.github.io/2017/12/12/crontab/&title=《crontab》 — KingLion&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://kinglion580.github.io/tags/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://kinglion580.github.io/2017/12/12/crontab/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《tags》 — KingLion&url=http://kinglion580.github.io/tags/&via=http://kinglion580.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《crontab》 — KingLion&url=http://kinglion580.github.io/2017/12/12/crontab/&via=http://kinglion580.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://kinglion580.github.io/tags/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://kinglion580.github.io/2017/12/12/crontab/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -355,7 +403,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aQW7DMAwEwPz/0ynQaxt1ScaMC4xPRpraoxwIcanHI76e39f5/vxf1b+OLlxc3DH3ebxePfrnd6qf/7w/G3Bxcfe5SfHKPzl/My+IuLi49+fmi8kXjIuL+9+5yQYlb3twcXHvz02an94Lqj/H23o1XFzcAfddgenk/gP5Li4ubmsq0QtP8/FJ+e24uLgr3N6m5IzL255m+4SLi7vOrY5P8uVNdjK4uLj73GpbkhSyXuRR+DlwcXEv4yZtTFJWko1LtagV2h5cXNwLuJNNTO85zdKGi4u7wu1tWZIwtBeCFNoeXFzcy7jJgCQ6LFUMNZqjVlxc3EVudXBSPchVXfbLsQouLu4KdzLB7B3eqm6McHFx97nJQ+djlXygUhil4OLiXsatFqxCRYzRecCKi4u7wz2/vtf29IKYaGuFi4u7yM3D0+qBjMf4wsXF/RR3EoaWJ7rFocsowcXFxW1xqwVlvmXpjXjLi8HFxR1z8+KVhyM5t1wWcXFxF7l50NlbZC9g/WOUgouLewNuLyiZjE9+seHi4t6SWy1nvRHsSxsuLu4i97qQtHAS5L2xCC4u7oDbC0zPj6iOb8/LwMXFXeR+AejeLuW0nMv2AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQXLCMAwFUO5/6XSmuw5N+JJCp9jPKwZI8MtCSJYej3gd3+v59fN3zr55XK6zO9y8MDAwPpbR+4Hrd5630rs22RsGBsY+jCTIJsHxiFc1ZL/YMwYGBsZlAE3YSS5XTUMxMDAwqrdOttgL6xgYGBh5ETth5+H77bU4BgbGBzImjYF3v/6j/gYGBsY/ZhzFlV9VLVmr9/9xFQYGxtKM/NgrKTt75ehkpqJ8eoeBgfGxjKSJOB8Fuw6mvWTxFIOBgbEQIw+X1QGLu5qa0QAZBgbGNoz8pvMw3RvaiHJbDAyMRRl50lbNNEftxryIxcDA2ICRF5aTUbBeI7OZ4WJgYCzHyLeSpHQ5YwL+5bgNAwNjUUbvsD45hqsG7hvCOgYGxqKMFyGs+P7kESQB9/RTDAyMpRn3bqvXnpykjxgYGPsw8iDYK1zzzVWboxgYGDsw3j0KljcyewMfGBgY+zDywrXX7KyOcZTBGBgYSzPyreeFbp4C5kVyflSHgYGxHqM6WtEL0JOHUk4NMTAwlmbkJWi1Sdk7gCu8j4GBsTRjUij2fj6BVetTDAyMtRlHcU0aAwkmv/Pp/wYGBsZyjHzNw2X+mPJUFQMDYx9GfuvqQVh1UCx53hgYGDszknRt3qSc/wMUuq8YGBhbMnqBcjJUUShiMTAwMG5K9SZHci9COQYGxgaMvCidFL1JwlcN0BgYGDsweqVjnsDlQ2a3DYRhYGCsw/gC5uPrQULJpcoAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
