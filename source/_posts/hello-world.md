@@ -1,6 +1,5 @@
 ---
 title: Hello World
-comments: true
 categories: test
 tags:
 - hello
