@@ -107,9 +107,10 @@ disqus_shortname: false
 uyan_uid: false
 # 是否使用 gitment，https://github.com/imsun/gitment
 # gitment: false
+# repo: https://github.com/kinglion580/test
 gitment:
   owner: kinglion580
-  repo: https://github.com/kinglion580/test
+  repo: test
   client_id: 1513f0da222584b42cc3
   client_secret: f07dea01d0392c8ce73b9af038e2b7ac5eebd7ac
 
