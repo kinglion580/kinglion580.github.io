@@ -76,9 +76,10 @@ theme: indigo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+## repo: https://github.com/kinglion580/kinglion580.github.io.git
 deploy:
   type: git
-  repo: https://github.com/kinglion580/kinglion580.github.io.git
+  repo: git@github.com:kinglion580/kinglion580.github.io.git
   branch: master
 
 
