@@ -14,12 +14,12 @@ menu:
     url: /archives
   tags:
     url: /tags
-  book:
-    text: Books
-    url: /books
   th-list:
     text: Categories
     url: /categories
+  book:
+    text: Books
+    url: /books
   github:
     url: https://github.com/kinglion580
     target: _blank
@@ -110,7 +110,7 @@ uyan_uid: false
 # repo: https://github.com/kinglion580/test
 gitment:
   owner: kinglion580
-  repo: test
+  repo: kinglion580.github.io
   client_id: 1513f0da222584b42cc3
   client_secret: f07dea01d0392c8ce73b9af038e2b7ac5eebd7ac
 
