@@ -106,19 +106,19 @@ disqus_shortname: false
 # 是否开启友言评论, 填写友言用户id
 uyan_uid: false
 # 是否使用 gitment，https://github.com/imsun/gitment
-# gitment: false
+gitment: false
 # repo: https://github.com/kinglion580/test
-gitment:
-  owner: kinglion580
-  repo: kinglion580.github.io
-  client_id: 1513f0da222584b42cc3
-  client_secret: f07dea01d0392c8ce73b9af038e2b7ac5eebd7ac
+# gitment:
+#   owner: kinglion580
+#   repo: kinglion580.github.io
+#   client_id: 1513f0da222584b42cc3
+#   client_secret: f07dea01d0392c8ce73b9af038e2b7ac5eebd7ac
 
 # Valine Comment system. https://valine.js.org
 valine:
-  enable: false # 如果你想使用valine，请将值设置为 true
-  appId:  # your leancloud appId
-  appKey:  # your leancloud appKey
+  enable: true # 如果你想使用valine，请将值设置为 true
+  appId:  Pd2jbqa3hkGWu5JoCledloX4-gzGzoHsz  # your leancloud appId
+  appKey: HeglzlvKeU0NTiJYhmaf7Fb9  # your leancloud appKey
   notify: false # Mail notify
   verify: false # Verify code
   avatar: mm # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
