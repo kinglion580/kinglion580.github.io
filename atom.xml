@@ -235,6 +235,33 @@
   </entry>
   
   <entry>
+    <title>crontab</title>
+    <link href="http://kinglion580.github.io/2018/01/13/crontab/"/>
+    <id>http://kinglion580.github.io/2018/01/13/crontab/</id>
+    <published>2018-01-13T08:06:08.909Z</published>
+    <updated>2018-01-13T08:06:08.909Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="question"><a href="#question" class="headerlink" title="question"></a>question</h1><h2 id="Periodically-pack-a-backup-log"><a href="#Periodically-pack-a-backup-log" class="headerlink" title="Periodically pack a backup log"></a>Periodically pack a backup log</h2><h3 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h3><p>You are the server administrator of the experiment building, and you need to back up the log files in the <code>/var/log</code> directory every day. After the backup is packed and compressed for a long time, the file name is stored in the format of the <code>year-month-day.Tar.gz</code>. For example, the file backed up in November 1, 2017 is 2017-11-01.tar.gz, and the files after the backup are stored in the <code>/home/shiyanlou/backup</code> directory.</p><p>Note that you need to use the method of incremental backup of the tar command to make a backup.</p><h3 id="target"><a href="#target" class="headerlink" title="target"></a>target</h3><ol><li>Add planning tasks for shiyanlou users</li></ol><ol><li><code>Every day at 3 a.m</code>., back up the <code>/var/log</code> directory to the <code>/home/shiyanlou/backup/year-month-day.Tar.gz</code> file, and note that it is an incremental backup.</li></ol><ol><li>Backup file naming format is <code>year-month-day.Tar.gz</code></li></ol><ol><li>Write to crontab with a command, do not write the script<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3></li></ol><p>Crontab sets a tar command for an incremental backup of the specified time.</p><h3 id="Knowledge-point"><a href="#Knowledge-point" class="headerlink" title="Knowledge point"></a>Knowledge point</h3><p>Date formatted output string<br>Crontab set planning tasks<br>Tar command incremental backup mode</p><h1 id="keypoint"><a href="#keypoint" class="headerlink" title="keypoint"></a>keypoint</h1><blockquote><p>0 3 <em> </em> * tar -cvf /home/shiyanlou/backup/$(date +\%Y-\%m-\%d).tar.gz -g /var/log</p><ul><li><code>tar.gz</code></li><li><code>0 3</code></li><li><code>\%Y\%m\%d\%H\%M\%S</code></li></ul></blockquote><ul><li><h2 id="how-to-start-cron"><a href="#how-to-start-cron" class="headerlink" title="how to start cron"></a>how to start cron</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service rsyslog start</span><br><span class="line">sudo cron -f &amp;</span><br></pre></td></tr></table></figure></li><li><h2 id="check-whether-cron-is-started"><a href="#check-whether-cron-is-started" class="headerlink" title="check whether cron is started"></a>check whether cron is started</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep cron</span><br><span class="line">or</span><br><span class="line">pgrep cron</span><br></pre></td></tr></table></figure></li><li><h2 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure></li><li><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure></li><li><h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;question&quot;&gt;&lt;a href=&quot;#question&quot; class=&quot;headerlink&quot; title=&quot;question&quot;&gt;&lt;/a&gt;question&lt;/h1&gt;&lt;h2 id=&quot;Periodically-pack-a-backup-log&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://kinglion580.github.io/categories/linux/"/>
+    
+      <category term="challenge" scheme="http://kinglion580.github.io/categories/linux/challenge/"/>
+    
+    
+      <category term="crontab" scheme="http://kinglion580.github.io/tags/crontab/"/>
+    
+  </entry>
+  
+  <entry>
     <title>find_and_pack</title>
     <link href="http://kinglion580.github.io/2018/01/13/find_and_pack/"/>
     <id>http://kinglion580.github.io/2018/01/13/find_and_pack/</id>
@@ -262,33 +289,6 @@
       <category term="exec" scheme="http://kinglion580.github.io/tags/exec/"/>
     
       <category term="cp" scheme="http://kinglion580.github.io/tags/cp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>crontab</title>
-    <link href="http://kinglion580.github.io/2018/01/13/crontab/"/>
-    <id>http://kinglion580.github.io/2018/01/13/crontab/</id>
-    <published>2018-01-13T08:06:08.909Z</published>
-    <updated>2018-01-13T08:06:08.909Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="question"><a href="#question" class="headerlink" title="question"></a>question</h1><h2 id="Periodically-pack-a-backup-log"><a href="#Periodically-pack-a-backup-log" class="headerlink" title="Periodically pack a backup log"></a>Periodically pack a backup log</h2><h3 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h3><p>You are the server administrator of the experiment building, and you need to back up the log files in the <code>/var/log</code> directory every day. After the backup is packed and compressed for a long time, the file name is stored in the format of the <code>year-month-day.Tar.gz</code>. For example, the file backed up in November 1, 2017 is 2017-11-01.tar.gz, and the files after the backup are stored in the <code>/home/shiyanlou/backup</code> directory.</p><p>Note that you need to use the method of incremental backup of the tar command to make a backup.</p><h3 id="target"><a href="#target" class="headerlink" title="target"></a>target</h3><ol><li>Add planning tasks for shiyanlou users</li></ol><ol><li><code>Every day at 3 a.m</code>., back up the <code>/var/log</code> directory to the <code>/home/shiyanlou/backup/year-month-day.Tar.gz</code> file, and note that it is an incremental backup.</li></ol><ol><li>Backup file naming format is <code>year-month-day.Tar.gz</code></li></ol><ol><li>Write to crontab with a command, do not write the script<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3></li></ol><p>Crontab sets a tar command for an incremental backup of the specified time.</p><h3 id="Knowledge-point"><a href="#Knowledge-point" class="headerlink" title="Knowledge point"></a>Knowledge point</h3><p>Date formatted output string<br>Crontab set planning tasks<br>Tar command incremental backup mode</p><h1 id="keypoint"><a href="#keypoint" class="headerlink" title="keypoint"></a>keypoint</h1><blockquote><p>0 3 <em> </em> * tar -cvf /home/shiyanlou/backup/$(date +\%Y-\%m-\%d).tar.gz -g /var/log</p><ul><li><code>tar.gz</code></li><li><code>0 3</code></li><li><code>\%Y\%m\%d\%H\%M\%S</code></li></ul></blockquote><ul><li><h2 id="how-to-start-cron"><a href="#how-to-start-cron" class="headerlink" title="how to start cron"></a>how to start cron</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service rsyslog start</span><br><span class="line">sudo cron -f &amp;</span><br></pre></td></tr></table></figure></li><li><h2 id="check-whether-cron-is-started"><a href="#check-whether-cron-is-started" class="headerlink" title="check whether cron is started"></a>check whether cron is started</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep cron</span><br><span class="line">or</span><br><span class="line">pgrep cron</span><br></pre></td></tr></table></figure></li><li><h2 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure></li><li><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure></li><li><h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;question&quot;&gt;&lt;a href=&quot;#question&quot; class=&quot;headerlink&quot; title=&quot;question&quot;&gt;&lt;/a&gt;question&lt;/h1&gt;&lt;h2 id=&quot;Periodically-pack-a-backup-log&quot;&gt;&lt;a href=&quot;
-      
-    
-    </summary>
-    
-      <category term="linux" scheme="http://kinglion580.github.io/categories/linux/"/>
-    
-      <category term="challenge" scheme="http://kinglion580.github.io/categories/linux/challenge/"/>
-    
-    
-      <category term="crontab" scheme="http://kinglion580.github.io/tags/crontab/"/>
     
   </entry>
   
